@@ -21,7 +21,7 @@ public function registerBundles(): array
 {
     $bundles = [
         // ...
-        new Enm\Bundle\JsonApi\Server\ResourceMappers\EnmJsonApiResourceMapperBundle(),
+        new Enm\Bundle\JsonApi\Server\ResourceMappers\EnmJsonApiServerResourceMapperBundle(),
         // ...
     ];
     
