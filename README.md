@@ -1,5 +1,7 @@
 JSON API Server / Resource Mapper Bundle
 =======================================
+[![Build Status](https://travis-ci.org/eosnewmedia/JSON-API-Server-Resource-Mapper-Bundle.svg)](https://travis-ci.org/eosnewmedia/JSON-API-Server-Resource-Mapper-Bundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/eda4feff-eff4-4840-98b2-e3f93b6f5391/mini.png)](https://insight.sensiolabs.com/projects/eda4feff-eff4-4840-98b2-e3f93b6f5391)
 
 Symfony integration for [enm/json-api-server-resource-mappers](https://eosnewmedia.github.io/JSON-API-Server-Resource-Mappers/)
 
@@ -21,7 +23,7 @@ public function registerBundles(): array
 {
     $bundles = [
         // ...
-        new Enm\Bundle\JsonApi\Server\ResourceMappers\EnmJsonApiResourceMapperBundle(),
+        new Enm\Bundle\JsonApi\Server\ResourceMappers\EnmJsonApiServerResourceMapperBundle(),
         // ...
     ];
     
