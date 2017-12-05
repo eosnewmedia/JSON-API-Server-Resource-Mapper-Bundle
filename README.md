@@ -42,4 +42,4 @@ services:
             - { name: 'json_api_server.resource_mapper' }
 ```
 
-The registry service, which you will need for dependency injection, is `enm.json_api_server.resource_mappers`. 
+The registry service, which you will need for dependency injection, is `Enm\JsonApi\Server\ResourceMappers\Mapper\ResourceMapperInterface`. 
