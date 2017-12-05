@@ -32,9 +32,10 @@ class EnmJsonApiServerResourceMapperBundleTest extends TestCase
 
         self::assertCount(
             1,
-            $container->getDefinition(EnmJsonApiServerResourceMapperExtension::REGISTRY_SERVICE)->getMethodCalls()
+            $container->getDefinition(ResourceMapperInterface::class)->getMethodCalls()
         );
         self::assertCount(1, $container->findTaggedServiceIds(ResourceMapperPass::RESOURCE_MAPPER_TAG));
+        self::assertInstanceOf(ResourceMapperInterface::class, $container->get(ResourceMapperInterface::class));
         self::assertInstanceOf(ResourceMapperInterface::class, $container->get('enm.json_api_server.resource_mappers'));
     }
 }
