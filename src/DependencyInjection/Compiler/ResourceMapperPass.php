@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Enm\Bundle\JsonApi\Server\ResourceMappers\DependencyInjection\Compiler;
 
-use Enm\Bundle\JsonApi\Server\ResourceMappers\DependencyInjection\EnmJsonApiServerResourceMapperExtension;
+use Enm\JsonApi\Server\ResourceMappers\Mapper\ResourceMapperInterface;
 use Enm\JsonApi\Server\ResourceMappers\Mapper\ResourceMapperRegistry;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -24,8 +24,8 @@ class ResourceMapperPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if ($container->hasDefinition(EnmJsonApiServerResourceMapperExtension::REGISTRY_SERVICE)) {
-            $registry = $container->getDefinition(EnmJsonApiServerResourceMapperExtension::REGISTRY_SERVICE);
+        if ($container->hasDefinition(ResourceMapperInterface::class)) {
+            $registry = $container->getDefinition(ResourceMapperInterface::class);
 
             if ($registry->getClass() === ResourceMapperRegistry::class) {
                 $mappers = $container->findTaggedServiceIds(self::RESOURCE_MAPPER_TAG);

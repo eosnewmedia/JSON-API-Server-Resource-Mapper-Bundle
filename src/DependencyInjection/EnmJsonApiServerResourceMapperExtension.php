@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Enm\Bundle\JsonApi\Server\ResourceMappers\DependencyInjection;
 
+use Enm\JsonApi\Server\ResourceMappers\Mapper\ResourceMapperInterface;
 use Enm\JsonApi\Server\ResourceMappers\Mapper\ResourceMapperRegistry;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -13,6 +14,9 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
  */
 class EnmJsonApiServerResourceMapperExtension extends Extension
 {
+    /**
+     * @deprecated will be removed in 2.0
+     */
     const REGISTRY_SERVICE = 'enm.json_api_server.resource_mappers';
 
     /**
@@ -26,8 +30,10 @@ class EnmJsonApiServerResourceMapperExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $container->setDefinition(
-            self::REGISTRY_SERVICE,
+            ResourceMapperInterface::class,
             new Definition(ResourceMapperRegistry::class)
         );
+
+        $container->setAlias(self::REGISTRY_SERVICE, ResourceMapperInterface::class);
     }
 }
